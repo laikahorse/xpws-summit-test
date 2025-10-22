@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XPRIZE Water Scarcity Summit | Abu Dhabi 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-      color: #2c3e50;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #0a1a2f;
+      color: #e0f7fa;
+      overflow-x: hidden;
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: relative;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -24,24 +25,43 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
-      color: #ffffff;
+      background: linear-gradient(to bottom, #0a1a2f 60%, #001f3f 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('https://assets-us-01.kc-usercontent.com/5cb25086-82d2-4c89-94f0-8450813a0fd3/afa64e0e-4d19-4947-819c-93f2abc6596a/XPWS_PrizePagePrimaryArt_Banner_meta.jpg?fm=jpg&auto=format');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
     }
 
     .hero h1 {
       font-size: calc(2rem + 2vw);
       font-weight: 700;
       margin-bottom: 1rem;
+      color: #00eaff;
     }
 
     .hero p {
       font-size: 1.25rem;
-      max-width: 700px;
+      color: #b8e3f0;
       margin-bottom: 2rem;
     }
 
     .cta-button {
-      background-color: #00bcd4;
-      color: white;
+      background-color: #00eaff;
+      color: #001f3f;
       padding: 0.75rem 2rem;
       border-radius: 9999px;
       font-weight: 700;
@@ -51,21 +71,21 @@
     }
 
     .cta-button:hover {
-      background-color: #0097a7;
+      background-color: #00b4d8;
     }
 
     section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 4rem auto;
       padding: 2rem;
-      background: #f9f9f9;
+      background: #0f2a45;
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     section h2 {
       font-size: 1.75rem;
-      color: #00796b;
+      color: #00eaff;
       margin-bottom: 1rem;
     }
 
@@ -73,20 +93,23 @@
       font-size: 1.125rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      color: #d0f4ff;
     }
 
     input[type="email"] {
       padding: 0.75rem 1rem;
-      border: 2px solid #00bcd4;
+      border: 2px solid #00eaff;
       border-radius: 0.5rem;
+      background-color: #001f3f;
+      color: white;
       width: 100%;
       max-width: 300px;
     }
 
     form button {
       margin-top: 1rem;
-      background-color: #00796b;
-      color: white;
+      background-color: #00eaff;
+      color: #001f3f;
       padding: 0.75rem 2rem;
       border-radius: 9999px;
       font-weight: 700;
@@ -95,7 +118,7 @@
     }
 
     form button:hover {
-      background-color: #004d40;
+      background-color: #00b4d8;
     }
 
     .metrics {
@@ -110,7 +133,7 @@
 
     .metrics h3 {
       font-size: 2rem;
-      color: #00bcd4;
+      color: #00eaff;
       margin-bottom: 0.5rem;
     }
 
@@ -118,11 +141,11 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.875rem;
-      color: #607d8b;
+      color: #7dd3fc;
     }
 
     footer a {
-      color: #00796b;
+      color: #00eaff;
       text-decoration: underline;
     }
   </style>
@@ -130,9 +153,11 @@
 <body>
 
 <section class="hero">
-  <h1>XPRIZE Water Scarcity Summit</h1>
-  <p>Abu Dhabi 2025 · Late April / Early May<br>Join global leaders to fund breakthrough solutions for a water-secure future.</p>
-  <a href="#signup" class="cta-button">Count Me In</a>
+  <div class="hero-content">
+    <h1>XPRIZE Water Scarcity Summit</h1>
+    <p>Abu Dhabi 2025 · Late April / Early May<br>Join global leaders to fund breakthrough solutions for a water-secure future.</p>
+    <a href="#signup" class="cta-button">Count Me In</a>
+  </div>
 </section>
 
 <section id="signup">
