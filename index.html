@@ -7,11 +7,9 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 <style>
-  /* Base */
   body, html {margin:0;padding:0;width:100%;height:100%;overflow-x:hidden;font-family:'Poppins', sans-serif;}
   body {cursor:none; background:#00142b;}
 
-  /* Cursor */
   .cursor {
     position: fixed;
     top:0; left:0;
@@ -24,52 +22,103 @@
     z-index:9999;
   }
 
-  /* Hero text */
   header {
     position:relative; z-index:10; text-align:center; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
     color:#00eaff;
+    padding:0 1rem;
   }
   header h1 {font-size: calc(2rem + 3vw); text-transform:uppercase; font-weight:600; letter-spacing:1px; margin-bottom:1rem;}
   header p {font-size: calc(1rem + 1vw); max-width:700px; color:#b8e3f0;}
   .cta {border:2px solid #00eaff; padding:1rem 2rem; text-transform:uppercase; font-weight:600; transition:0.3s ease; margin-top:2rem;}
   .cta:hover {background:#00eaff; color:#00142b; transform:scale(1.1);}
 
-  /* Canvas background */
   canvas {position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;}
 
-  /* Scroll content */
-  section {position:relative; z-index:10; max-width:900px; margin:100px auto; text-align:center; color:#d0f4ff;}
+  section {position:relative; z-index:10; max-width:900px; margin:100px auto; text-align:center; color:#d0f4ff; padding:0 1rem;}
   h2 {color:#00b4d8; font-size:2rem; margin-bottom:15px;}
   p {line-height:1.7; margin-bottom:25px;}
 
+  input[type="email"] {
+    padding: 0.75rem 1rem;
+    border: 2px solid #00eaff;
+    background: #002b4d;
+    color: white;
+    border-radius: 5px;
+    width: 250px;
+  }
+
+  form button {
+    border:2px solid #00eaff;
+    padding:0.75rem 2rem;
+    text-transform:uppercase;
+    font-weight:600;
+    transition:0.3s ease;
+    background: transparent;
+    color: #00eaff;
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background:#00eaff;
+    color:#00142b;
+    transform:scale(1.05);
+  }
+
+  .metrics {display:flex; justify-content:center; gap:2rem; margin-top:2rem;}
+  .metrics div {text-align:center;}
+  .metrics h3 {font-size:2rem; font-weight:bold; color:#00eaff;}
+  .metrics p {color:#b8e3f0;}
 </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
 
-<!-- Hero Section -->
 <header>
-  <h1>XPRIZE Water Scarcity</h1>
-  <p>Investor & Impact Summit — ADNEC, Abu Dhabi | Late April / Early May 2025</p>
-  <a href="#signup" class="cta">Save the Date</a>
+  <h1>Water Is Running Out</h1>
+  <p>Join global leaders in Abu Dhabi to fund breakthrough solutions at the XPRIZE Water Scarcity Summit — Late April / Early May 2025</p>
+  <a href="#signup" class="cta">Count Me In</a>
 </header>
 
-<!-- Signup / Info Section -->
 <section id="signup">
-  <h2>Be Among the First to Invest in Change</h2>
-  <p>Meet the top 20 semifinalists redefining global water resilience. Policy makers, investors, and sustainability leaders are invited to secure early access.</p>
-  <a href="#" class="cta">Request an Invitation</a>
+  <h2>Secure Your Seat at the Table</h2>
+  <p>Meet the top 20 semifinalists tackling global water scarcity. This is your chance to shape the future — alongside policymakers, investors, and innovators.</p>
+  <a href="#rsvp" class="cta">Request Early Access</a>
+</section>
+
+<section id="rsvp">
+  <h2>Spots Are Limited</h2>
+  <p>We’ll notify you as soon as registration opens. Don’t miss your chance to be part of the solution.</p>
+  <form>
+    <input type="email" placeholder="Your email">
+    <button type="submit">I Want to Help Solve This</button>
+  </form>
+</section>
+
+<section>
+  <h2>Why It Matters</h2>
+  <p>Over 2 billion people face water scarcity. The XPRIZE Summit brings together the brightest minds to change that.</p>
+  <div class="metrics">
+    <div>
+      <h3>20</h3>
+      <p>Semifinalists</p>
+    </div>
+    <div>
+      <h3>50+</h3>
+      <p>Countries Represented</p>
+    </div>
+    <div>
+      <h3>1 Goal</h3>
+      <p>Water for All</p>
+    </div>
+  </div>
 </section>
 
 <footer class="text-gray-500 text-sm py-8 text-center">
   © 2025 XPRIZE Foundation | <a href="https://www.xprize.org/water" class="text-blue-400">xprize.org/water</a>
 </footer>
 
-<!-- ⭐ CHECKPOINT: All Canvas + Ripple + Scroll + Parallax Scripts -->
 <script>
-/* Canvas Waves + Ripples */
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 canvas.id = 'rippleCanvas';
@@ -81,18 +130,15 @@ window.addEventListener('resize',()=>{width=canvas.width=window.innerWidth;heigh
 
 let time = 0;
 const ripples = [];
-let particleCount = window.innerWidth < 600 ? 20 : 50; // mobile optimization
+let particleCount = window.innerWidth < 600 ? 20 : 50;
 
-// Track mouse / touch for ripples
 window.addEventListener('mousemove', e => { ripples.push({x:e.clientX,y:e.clientY,radius:0,alpha:0.4}); });
 window.addEventListener('touchmove', e => { for(let t of e.touches){ ripples.push({x:t.clientX,y:t.clientY,radius:0,alpha:0.4}); }});
 
-// Draw loop
 function draw() {
   time += 0.03;
   ctx.clearRect(0,0,width,height);
 
-  // Background gradient
   const grad = ctx.createLinearGradient(0,0,0,height);
   grad.addColorStop(0,'#00142b');
   grad.addColorStop(0.7,'#003a63');
@@ -100,7 +146,6 @@ function draw() {
   ctx.fillStyle = grad;
   ctx.fillRect(0,0,width,height);
 
-  // Main waves
   ctx.beginPath();
   ctx.strokeStyle='rgba(0,234,255,0.4)';
   ctx.lineWidth=1.5;
@@ -110,7 +155,6 @@ function draw() {
   }
   ctx.stroke();
 
-  // Ripples
   for(let i=ripples.length-1;i>=0;i--){
     const r=ripples[i];
     ctx.beginPath();
@@ -123,7 +167,6 @@ function draw() {
     if(r.alpha<=0) ripples.splice(i,1);
   }
 
-  // Particles for subtle water sparkle
   for(let i=0;i<particleCount;i++){
     ctx.beginPath();
     const x=Math.random()*width;
@@ -137,21 +180,18 @@ function draw() {
 }
 draw();
 
-/* Custom Cursor */
 const cursor=document.getElementById('cursor');
 window.addEventListener('mousemove', e => { cursor.style.transform=`translate(${e.clientX}px,${e.clientY}px)`; });
 
-/* Smooth Scroll for Anchors */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e){
     e.preventDefault();
     const target=document.querySelector(this.getAttribute('href'));
-    const offset=80; // adjust so section not hidden
+    const offset=80;
     window.scrollTo({top:target.offsetTop - offset, behavior:'smooth'});
   });
 });
 
-/* Parallax Text Effect */
 window.addEventListener('scroll', ()=>{
   const scrollY = window.scrollY;
   const heroH1 = document.querySelector('header h1');
