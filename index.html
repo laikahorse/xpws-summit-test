@@ -11,7 +11,7 @@
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #0a1a2f;
+      background-color: #001f3f;
       color: #e0f7fa;
       overflow-x: hidden;
     }
@@ -25,7 +25,8 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
-      background: linear-gradient(to bottom, #0a1a2f 60%, #001f3f 100%);
+      background: linear-gradient(to bottom, #001f3f 60%, #003b5c 100%);
+      overflow: hidden;
     }
 
     .hero::before {
@@ -36,8 +37,14 @@
       background-image: url('https://assets-us-01.kc-usercontent.com/5cb25086-82d2-4c89-94f0-8450813a0fd3/afa64e0e-4d19-4947-819c-93f2abc6596a/XPWS_PrizePagePrimaryArt_Banner_meta.jpg?fm=jpg&auto=format');
       background-size: cover;
       background-position: center;
-      opacity: 0.15;
+      opacity: 0.2;
       z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
 
     .hero-content {
@@ -155,14 +162,14 @@
 <section class="hero">
   <div class="hero-content">
     <h1>XPRIZE Water Scarcity Summit</h1>
-    <p>Abu Dhabi 2025 · Late April / Early May<br>Join global leaders to fund breakthrough solutions for a water-secure future.</p>
-    <a href="#signup" class="cta-button">Count Me In</a>
+    <p>Investor & Impact Summit · Abu Dhabi, UAE · Late April / Early May 2025<br>Be among the first to invest in breakthrough water solutions.</p>
+    <a href="#signup" class="cta-button">Save the Date</a>
   </div>
 </section>
 
 <section id="signup">
-  <h2>Be First to Shape the Future</h2>
-  <p>Meet the top 20 semifinalists tackling global water scarcity. Join policymakers, investors, and innovators at the forefront of water resilience.</p>
+  <h2>Why Attend</h2>
+  <p>Meet the Top 20 semifinalists redefining global water resilience. This is your chance to shape the future — alongside policymakers, investors, and sustainability leaders. Early access means early opportunity.</p>
   <a href="#rsvp" class="cta-button">Request Early Access</a>
 </section>
 
@@ -178,8 +185,8 @@
 </section>
 
 <section>
-  <h2>Why It Matters</h2>
-  <p>Over 2 billion people face water scarcity. The XPRIZE Summit brings together the brightest minds to change that.</p>
+  <h2>Summit Highlights</h2>
+  <p>Explore cutting-edge desalination technologies, meet the innovators behind the breakthroughs, and engage in high-level discussions on water equity, infrastructure, and investment.</p>
   <div class="metrics">
     <div>
       <h3>20</h3>
