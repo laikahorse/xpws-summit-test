@@ -5,51 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XPRIZE Water Scarcity Summit | Abu Dhabi 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: #2c3e50;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #000c1f, #001f3f);
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 1rem;
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 800px;
-    }
-
-    .glow-text {
-      color: #00eaff;
-      text-shadow: 0 0 10px #00eaff88;
-    }
-
-    .cta-button {
-      border: 2px solid #00eaff;
-      padding: 0.75rem 2rem;
-      text-transform: uppercase;
-      font-weight: 600;
-      transition: 0.3s ease;
-      background: transparent;
-      color: #00eaff;
-      border-radius: 9999px;
-    }
-
-    .cta-button:hover {
-      background: #00eaff;
-      color: #001f3f;
-      transform: scale(1.05);
     }
 
     .hero {
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -57,24 +24,83 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
+      color: #ffffff;
     }
 
     .hero h1 {
-      font-size: calc(2rem + 3vw);
-      font-weight: 800;
+      font-size: calc(2rem + 2vw);
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
     .hero p {
       font-size: 1.25rem;
       max-width: 700px;
-      color: #b8e3f0;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background-color: #00bcd4;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      border: none;
+    }
+
+    .cta-button:hover {
+      background-color: #0097a7;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    section h2 {
+      font-size: 1.75rem;
+      color: #00796b;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="email"] {
+      padding: 0.75rem 1rem;
+      border: 2px solid #00bcd4;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    form button {
+      margin-top: 1rem;
+      background-color: #00796b;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #004d40;
     }
 
     .metrics {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      justify-content: space-around;
       margin-top: 2rem;
     }
 
@@ -84,71 +110,50 @@
 
     .metrics h3 {
       font-size: 2rem;
-      font-weight: bold;
-      color: #00eaff;
-    }
-
-    .metrics p {
-      color: #b8e3f0;
+      color: #00bcd4;
+      margin-bottom: 0.5rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.875rem;
-      color: #7dd3fc;
+      color: #607d8b;
     }
 
     footer a {
-      color: #38bdf8;
+      color: #00796b;
       text-decoration: underline;
-    }
-
-    .bg-animated {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -1;
-      background: radial-gradient(circle at 20% 30%, #003b5c, transparent 60%),
-                  radial-gradient(circle at 80% 70%, #00eaff33, transparent 60%);
-      animation: pulse 10s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
     }
   </style>
 </head>
 <body>
 
-<div class="bg-animated"></div>
-
 <section class="hero">
-  <h1 class="glow-text">XPRIZE Water Scarcity Summit</h1>
+  <h1>XPRIZE Water Scarcity Summit</h1>
   <p>Abu Dhabi 2025 · Late April / Early May<br>Join global leaders to fund breakthrough solutions for a water-secure future.</p>
-  <a href="#signup" class="cta-button mt-6">Count Me In</a>
+  <a href="#signup" class="cta-button">Count Me In</a>
 </section>
 
-<section id="signup" class="glass">
-  <h2 class="text-2xl glow-text mb-4">Be First to Shape the Future</h2>
+<section id="signup">
+  <h2>Be First to Shape the Future</h2>
   <p>Meet the top 20 semifinalists tackling global water scarcity. Join policymakers, investors, and innovators at the forefront of water resilience.</p>
-  <a href="#rsvp" class="cta-button mt-4 inline-block">Request Early Access</a>
+  <a href="#rsvp" class="cta-button">Request Early Access</a>
 </section>
 
-<section id="rsvp" class="glass">
-  <h2 class="text-2xl glow-text mb-4">Spots Are Limited</h2>
+<section id="rsvp">
+  <h2>Spots Are Limited</h2>
   <p>We’ll notify you as soon as registration opens. Don’t miss your chance to be part of the solution.</p>
-  <form action="https://formsubmit.co/laika@xprize.org" method="POST" class="mt-6 flex flex-col items-center gap-4">
-    <input type="email" name="email" required placeholder="Your email" class="px-4 py-2 rounded bg-[#002b4d] text-white border border-[#00eaff] w-64">
+  <form action="https://formsubmit.co/laika@xprize.org" method="POST">
+    <input type="email" name="email" required placeholder="Your email">
     <input type="hidden" name="_subject" value="New RSVP for XPRIZE Water Scarcity Summit">
     <input type="hidden" name="_captcha" value="false">
-    <button type="submit" class="cta-button">I Want to Help Solve This</button>
+    <button type="submit">I Want to Help Solve This</button>
   </form>
 </section>
 
-<section class="glass">
-  <h2 class="text-2xl glow-text mb-4">Why It Matters</h2>
+<section>
+  <h2>Why It Matters</h2>
   <p>Over 2 billion people face water scarcity. The XPRIZE Summit brings together the brightest minds to change that.</p>
   <div class="metrics">
     <div>
