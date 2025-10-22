@@ -5,103 +5,189 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XPRIZE Water Scarcity | Investor & Impact Summit</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #0b1b35;
       color: #fff;
-      line-height: 1.6;
+      background-color: #00142b;
+      overflow-x: hidden;
     }
+
+    /* Hero Section */
     header {
-      background: linear-gradient(135deg, #0b1b35 0%, #155b9e 100%);
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 100px 20px;
+      background: linear-gradient(180deg, #00142b 0%, #012e52 100%);
+      overflow: hidden;
     }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #00a0df;
+
+    header h1 {
+      font-size: 3rem;
+      color: #00b4d8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeInUp 1.5s ease forwards;
     }
-    p.subtitle {
+
+    header p {
       font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #d0e7f9;
+      color: #d0ecff;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.5;
+      animation: fadeInUp 2s ease forwards;
     }
+
     .cta {
-      background-color: #00a0df;
+      margin-top: 30px;
+      background: linear-gradient(90deg, #00b4d8, #0096c7);
       color: #fff;
-      padding: 15px 30px;
       border: none;
-      border-radius: 30px;
+      padding: 15px 40px;
+      border-radius: 50px;
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.3s ease;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+      animation: fadeInUp 2.5s ease forwards;
     }
     .cta:hover {
-      background-color: #0088bd;
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #0096c7, #0077b6);
     }
+
+    /* Animated Wave Background */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200px;
+      background: rgba(0, 180, 216, 0.3);
+      opacity: 0.6;
+      border-radius: 100%;
+      animation: wave 8s linear infinite;
+      transform: translateX(-50%);
+    }
+    .wave:nth-child(2) {
+      animation-delay: -4s;
+      background: rgba(0, 119, 182, 0.3);
+      height: 250px;
+    }
+
+    @keyframes wave {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
     section {
-      padding: 60px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 100px auto;
+      padding: 0 20px;
+      text-align: center;
     }
     h2 {
-      color: #00a0df;
+      color: #00b4d8;
+      font-size: 1.8rem;
       margin-bottom: 10px;
+    }
+    p {
+      color: #d0ecff;
+      line-height: 1.7;
+      margin-bottom: 25px;
     }
     ul {
       list-style: none;
       padding: 0;
+      margin-bottom: 30px;
     }
-    ul li::before {
-      content: "• ";
-      color: #00a0df;
+    ul li {
+      padding: 10px 0;
+      color: #b8e3f0;
     }
+
+    /* Footer */
     footer {
-      background-color: #0a1527;
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       font-size: 0.9rem;
-      color: #a9bcd0;
+      background: #00142b;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
-    a {
-      color: #00a0df;
+    footer a {
+      color: #00b4d8;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    footer a:hover { text-decoration: underline; }
+
+    /* Floating bubbles animation */
+    .bubbles span {
+      position: absolute;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 180, 216, 0.3);
+      border-radius: 50%;
+      animation: rise 8s infinite ease-in;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>XPRIZE Water Scarcity</h1>
-    <p class="subtitle">
-      Investor & Impact Summit — Late April / Early May 2026  
-      <br>ADNEC, Abu Dhabi, United Arab Emirates
+    <p>
+      Investor & Impact Summit  
+      <br><strong>ADNEC, Abu Dhabi | Late April / Early May 2026</strong>
     </p>
     <a href="#" class="cta">Save the Date</a>
+    <div class="wave"></div>
+    <div class="wave"></div>
+
+    <div class="bubbles">
+      <span style="left:10%;animation-delay:1s;"></span>
+      <span style="left:20%;animation-delay:2s;"></span>
+      <span style="left:30%;animation-delay:3s;"></span>
+      <span style="left:50%;animation-delay:4s;"></span>
+      <span style="left:70%;animation-delay:1.5s;"></span>
+      <span style="left:80%;animation-delay:3.5s;"></span>
+      <span style="left:90%;animation-delay:5s;"></span>
+    </div>
   </header>
 
   <section>
     <h2>About the Summit</h2>
     <p>
-      The XPRIZE Water Scarcity Investor & Impact Summit will convene leading investors,
-      policymakers, and innovators shaping the future of water. Hosted at ADNEC in Abu Dhabi,
-      this exclusive gathering will spotlight the <strong>Top 20 semifinalists</strong> from the
-      XPRIZE Water Scarcity competition — pioneering technologies designed to secure the world’s most vital resource.
+      Hosted by <strong>XPRIZE</strong>, the Water Scarcity Investor & Impact Summit is where technology, capital, and
+      global leadership converge. This exclusive event unveils the <strong>Top 20 semifinalists</strong> pioneering
+      breakthroughs in seawater desalination, water reuse, and sustainable access.
     </p>
   </section>
 
   <section>
     <h2>Why Attend</h2>
     <ul>
-      <li>Be among the first to engage with groundbreaking water innovation teams.</li>
-      <li>Shape global strategies for sustainable water access and resilience.</li>
-      <li>Network with global leaders driving the future of water investment and policy.</li>
+      <li>Be first to discover investable water technologies redefining the future of scarcity.</li>
+      <li>Meet innovators shaping climate resilience across the globe.</li>
+      <li>Connect with policymakers and investors accelerating scalable impact.</li>
     </ul>
+    <a href="https://www.xprize.org/water" target="_blank" class="cta">Learn More About the Prize</a>
   </section>
 
   <section>
@@ -109,17 +195,14 @@
     <p>
       <strong>Venue:</strong> Abu Dhabi National Exhibition Centre (ADNEC)<br>
       <strong>Date:</strong> To Be Confirmed — Late April / Early May 2026<br>
-      <strong>Format:</strong> In-person exclusive event with curated networking and showcases.
+      <strong>Format:</strong> In-person with curated showcases and networking sessions.
     </p>
   </section>
 
-  <section style="text-align:center;">
-    <a href="https://www.xprize.org/water" target="_blank" class="cta">Learn More About the Prize</a>
-  </section>
-
   <footer>
-    <p>© 2026 XPRIZE Foundation | <a href="https://www.xprize.org/water" target="_blank">xprize.org/water</a></p>
+    <p>© 2026 XPRIZE Foundation | <a href="https://www.xprize.org/water">xprize.org/water</a></p>
     <p>Contact: <a href="mailto:info@xprize.org">info@xprize.org</a></p>
   </footer>
+
 </body>
 </html>
