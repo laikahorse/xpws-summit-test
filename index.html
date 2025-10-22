@@ -1,211 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XPRIZE Water Scarcity Summit | Abu Dhabi 2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="XPRIZE Investor & Impact Summit — Unlocking the Future of Water. Late April / Early May 2026 — Abu Dhabi, UAE. Exclusive, invitation-only access to 20 semifinalist teams. Register interest." />
+  <title>XPRIZE Investor & Impact Summit — Unlocking the Future of Water</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #001f3f;
-      color: #e0f7fa;
-      overflow-x: hidden;
+    :root{
+      --bg: linear-gradient(180deg,#04345a 0%, #0e6b8b 50%, #0b8fb2 100%);
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.97);
+      --muted: #6b7280;
+      --accent: #f6c85f;
+      --maxw: 1100px;
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    /* Theme variants: Classic (default), Desert, Minimal */
+    body{ margin:0; background:var(--bg); color:#031022; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:36px 18px; }
+    .page{ width:100%; max-width:var(--maxw); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)); border-radius:18px; overflow:hidden; box-shadow: 0 30px 60px rgba(2,6,23,0.45); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.06); }
+
+    header.hero{ display:grid; grid-template-columns: 1fr 420px; gap:0; align-items:stretch; min-height:360px; }
+    .hero-left{ padding:44px 52px; background: linear-gradient(180deg, rgba(2,10,20,0.16), rgba(255,255,255,0.02)); display:flex; flex-direction:column; justify-content:center; gap:18px; }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .logo{ font-weight:800; letter-spacing:-0.02em; color: white; font-size:20px; }
+    .host{ font-size:12px; color:rgba(255,255,255,0.85); padding:6px 10px; background: rgba(255,255,255,0.06); border-radius:8px; backdrop-filter: blur(4px); }
+
+    h1{ margin:0; color:#ffffff; font-size:40px; line-height:1.02; font-weight:800; text-shadow: 0 6px 18px rgba(4,18,32,0.48); }
+    .sub{ color: rgba(255,255,255,0.9); font-weight:600; margin-top:6px; font-size:14px; }
+    .hero-meta{ margin-top:18px; color:rgba(255,255,255,0.88); font-size:15px; max-width:58ch; }
+
+    .hero-right{ background:
+      radial-gradient(600px 300px at 10% 30%, rgba(255,255,255,0.03), transparent 10%),
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      display:flex; align-items:center; justify-content:center; padding:28px; position:relative;
+    }
+    /* decorative wave */
+    .wave{
+      width:100%; max-width:360px; height:280px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: inset 0 -60px 90px rgba(2,10,20,0.35);
+      display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; padding:20px;
+    }
+    .wave svg{ position:absolute; right: -20px; top:-10px; opacity:0.9; }
+    .datepill{ display:inline-block; padding:8px 12px; background:rgba(255,255,255,0.06); border-radius:999px; color:#e6f9ff; font-weight:600; font-size:13px; margin-bottom:12px; }
+    .teams{ color:#e9fbff; font-weight:700; font-size:28px; }
+    .place{ color: #bfeff8; font-size:13px; margin-top:8px; }
+
+    main.content{ padding:28px 44px; display:grid; grid-template-columns: 1fr 380px; gap:22px; align-items:start; background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01)); }
+    .card{ background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)); border-radius: 12px; padding:18px; box-shadow: 0 8px 30px rgba(4,12,24,0.08); border:1px solid rgba(3,8,15,0.03);}
+    .muted{ color:var(--muted); font-size:14px; }
+    .why-list{ display:grid; gap:10px; margin-top:8px; }
+    .why-item{ display:flex; gap:12px; align-items:flex-start; }
+    .why-item .num{ width:36px; height:36px; border-radius:10px; background:var(--glass); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:14px; }
+    .who{ margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+    .who li{ font-size:14px; color:#062635; }
+
+    aside.side{ display:flex; flex-direction:column; gap:18px; }
+    .cta{ display:flex; gap:12px; align-items:center; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:10px; cursor:pointer; font-weight:700; font-size:14px; text-decoration:none; }
+    .btn-primary{ background: linear-gradient(90deg,#0078a7,#00a6c7); color:white; border:0; box-shadow: 0 10px 30px rgba(2,30,50,0.18);}
+    .btn-outline{ border:1px solid rgba(3,10,18,0.06); background:white; color:#062635; }
+
+    .small{ font-size:13px; color:var(--muted); }
+    footer{ padding:20px 44px; border-top: 1px solid rgba(255,255,255,0.02); display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .save{ background: rgba(0,0,0,0.08); padding:12px 18px; border-radius:12px; color:#e9fbff; font-weight:700; }
+
+    /* Theme modifiers */
+    .theme-desert { --accent: #dba33a; --bg: linear-gradient(180deg,#0b3b4b 0%, #2b4a2c 50%, #f4e3c6 100%); }
+    .theme-minimal { --accent: #0b6c91; --bg: linear-gradient(180deg,#071428 0%, #0b2a35 60%, #001f2a 100%); }
+
+    /* responsive */
+    @media (max-width: 980px){
+      header.hero{ grid-template-columns: 1fr; min-height:480px; }
+      .hero-right{ order:-1; padding:20px; }
+      main.content{ grid-template-columns: 1fr; padding:22px; gap:18px;}
+      footer{ flex-direction:column; align-items:flex-start; gap:12px; padding:18px; }
+      .hero-left{ padding:28px; }
+    }
+    @media (max-width:420px){
+      h1{ font-size:28px; }
+      .brand .logo{ font-size:16px; }
+      .hero-left{ padding:18px; }
+      .wave{ max-width:100%; height:220px; }
     }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(to bottom, #001f3f 60%, #003b5c 100%);
-      overflow: hidden;
-    }
+    /* small JS-driven toggles / modal */
+    .hidden{ display:none; }
+    .theme-toggle{ display:flex; gap:8px; align-items:center; }
+    .theme-dot{ width:34px; height:34px; border-radius:8px; cursor:pointer; border:2px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; font-weight:700; color:white; }
+    .theme-dot.small{ width:28px; height:28px; font-size:12px; }
+    /* RSVP modal */
+    .modal-backdrop{ position:fixed; inset:0; background: rgba(2,6,12,0.6); display:flex; align-items:center; justify-content:center; z-index:60; padding:20px; }
+    .modal{ background: white; border-radius:12px; max-width:680px; width:100%; padding:20px; box-shadow: 0 30px 60px rgba(2,10,30,0.45); }
+    .form-row{ display:flex; gap:10px; margin-top:12px; }
+    .form-row input, .form-row textarea{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6eef2; font-size:14px; }
+    .close-x{ position:absolute; right:18px; top:18px; cursor:pointer; font-weight:700; }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: url('https://assets-us-01.kc-usercontent.com/5cb25086-82d2-4c89-94f0-8450813a0fd3/afa64e0e-4d19-4947-819c-93f2abc6596a/XPWS_PrizePagePrimaryArt_Banner_meta.jpg?fm=jpg&auto=format');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.2;
-      z-index: 0;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: calc(2rem + 2vw);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #00eaff;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: #b8e3f0;
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      background-color: #00eaff;
-      color: #001f3f;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      text-transform: uppercase;
-      transition: background 0.3s ease;
-      border: none;
-    }
-
-    .cta-button:hover {
-      background-color: #00b4d8;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: #0f2a45;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    section h2 {
-      font-size: 1.75rem;
-      color: #00eaff;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      color: #d0f4ff;
-    }
-
-    input[type="email"] {
-      padding: 0.75rem 1rem;
-      border: 2px solid #00eaff;
-      border-radius: 0.5rem;
-      background-color: #001f3f;
-      color: white;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    form button {
-      margin-top: 1rem;
-      background-color: #00eaff;
-      color: #001f3f;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      border: none;
-      transition: background 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #00b4d8;
-    }
-
-    .metrics {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 2rem;
-    }
-
-    .metrics div {
-      text-align: center;
-    }
-
-    .metrics h3 {
-      font-size: 2rem;
-      color: #00eaff;
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.875rem;
-      color: #7dd3fc;
-    }
-
-    footer a {
-      color: #00eaff;
-      text-decoration: underline;
-    }
+    /* small table for team country stats */
+    .country-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:10px; }
+    .country-chip{ padding:8px 10px; border-radius:999px; background:#f7fbfe; border:1px solid #ecf6fa; font-size:13px; color:#004b5a; display:inline-block; }
   </style>
 </head>
 <body>
+  <div class="page" id="pageRoot" role="main" aria-labelledby="mainTitle">
+    <header class="hero" aria-hidden="false">
+      <div class="hero-left" >
+        <div class="brand" aria-hidden="true">
+          <div class="logo" style="color: #dff9ff;">XPRIZE</div>
+          <div class="host">Hosted in partnership with MBZWI (provisional)</div>
+        </div>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>XPRIZE Water Scarcity Summit</h1>
-    <p>Investor & Impact Summit · Abu Dhabi, UAE · Late April / Early May 2025<br>Be among the first to invest in breakthrough water solutions.</p>
-    <a href="#signup" class="cta-button">Save the Date</a>
+        <h1 id="mainTitle">Unlocking the Future of Water</h1>
+        <div class="sub">XPRIZE Investor & Impact Summit — Late April / Early May 2026 • Abu Dhabi, UAE</div>
+
+        <p class="hero-meta" style="margin-top:16px;">
+          An invitation-only summit connecting global capital and policy leaders with up to <strong>20 XPRIZE Water Scarcity semifinalist teams</strong> from 29 countries — months before they are announced publicly.
+        </p>
+
+        <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
+          <a class="btn btn-primary" id="rsvpBtn" href="#" role="button">Register interest</a>
+          <a class="btn btn-outline" id="downloadBtn" href="#details" role="button">View summit overview</a>
+
+          <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+            <div class="small" style="color:rgba(255,255,255,0.85);">Theme</div>
+            <div class="theme-toggle" role="tablist" aria-label="Design themes">
+              <button class="theme-dot small" title="Classic" data-theme="classic" aria-pressed="true" style="background:linear-gradient(90deg,#0078a7,#00a6c7)">C</button>
+              <button class="theme-dot small" title="Desert gold" data-theme="desert" style="background:linear-gradient(90deg,#ad5c12,#f6c85f)">D</button>
+              <button class="theme-dot small" title="Minimal" data-theme="minimal" style="background:linear-gradient(90deg,#073a59,#0b6c91)">M</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="wave" aria-hidden="true">
+          <div class="datepill">Late April / Early May 2026</div>
+          <div class="teams">Meet up to 20 semifinalist teams</div>
+          <div class="place">Abu Dhabi, UAE • Private investor & policy summit</div>
+
+          <!-- Decorative coastline / wave SVG -->
+          <svg width="380" height="220" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; bottom:-18px; right:-18px; opacity:0.9;">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#99ecff" stop-opacity="0.08"/>
+                <stop offset="1" stop-color="#004b5a" stop-opacity="0.06"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="380" height="220" rx="12" fill="url(#g1)"/>
+            <g transform="translate(0,140)" fill="#ffffff" opacity="0.06">
+              <path d="M0,40 C65,0 120,80 190,40 C260,0 320,80 380,40 L380,140 L0,140 Z"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="details">
+      <section class="card" aria-labelledby="whyTitle">
+        <h2 id="whyTitle" style="margin:0 0 8px 0; font-size:20px;">Why attend</h2>
+        <p class="muted" style="margin:0 0 12px 0;">Private access, curated investor introductions, and strategic policy dialogue to accelerate deployment of breakthrough desalination technologies.</p>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="num" aria-hidden="true">1</div>
+            <div>
+              <strong>First-look access</strong>
+              <div class="small">Be among the first to engage with up to 20 semifinalist teams from 29 countries competing in the XPRIZE Water Scarcity challenge.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="num">2</div>
+            <div>
+              <strong>Curated capital connections</strong>
+              <div class="small">Invitation-only networking designed for sovereign funds, family offices, impact investors, corporate VCs, and DFIs.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="num">3</div>
+            <div>
+              <strong>Policy & investment synergy</strong>
+              <div class="small">Work with government and institutional partners to fast-track pilots, procurement, and policy frameworks.</div>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="num">4</div>
+            <div>
+              <strong>Visionary conversations</strong>
+              <div class="small">Keynotes and roundtables with leaders in water, climate finance, and technology with a clear path to deployment.</div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin:18px 0; border:none; height:1px; background:linear-gradient(90deg, rgba(2,6,12,0.03), rgba(2,6,12,0));" />
+
+        <h3 style="margin:0 0 8px 0;">Who you'll meet</h3>
+        <ul class="who" aria-label="audience types">
+          <li>Investors: sovereign wealth funds, VCs, private equity, family offices, infrastructure & impact funds.</li>
+          <li>Corporate & strategic leaders: corporate VCs, innovation labs, energy and food sector partners.</li>
+          <li>Policy makers & institutions: ministries, development banks, DFIs, and procurement agencies.</li>
+          <li>XPRIZE semifinalist teams: 20 high-potential desalination & water-tech teams from 29 countries.</li>
+        </ul>
+
+        <div style="margin-top:14px;">
+          <strong class="small">Geo footprint (teams):</strong>
+          <div class="country-grid" aria-hidden="false" style="margin-top:8px;">
+            <!-- condensed list for visual interest -->
+            <span class="country-chip">United States — 66</span>
+            <span class="country-chip">Australia — 7</span>
+            <span class="country-chip">United Kingdom — 7</span>
+            <span class="country-chip">China — 6</span>
+            <span class="country-chip">Canada — 6</span>
+            <span class="country-chip">UAE — 6</span>
+            <span class="country-chip">Singapore — 5</span>
+            <span class="country-chip">South Korea — 5</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side" aria-labelledby="ctaTitle">
+        <div class="card">
+          <h3 id="ctaTitle" style="margin:0 0 8px 0;">Save the date & secure access</h3>
+          <p class="small" style="margin:0 0 12px 0;">This is an exclusive, invite-only event. Early interest signals will be used to prioritize invitations and arrange private investor-team meetings.</p>
+
+          <div style="display:flex; gap:10px; flex-direction:column;">
+            <a class="btn btn-primary" id="mailtoBtn" href="mailto:events@xprize.org?subject=XPRIZE%20Investor%20Summit%20Interest&body=I%20am%20interested%20in%20attending%20the%20XPRIZE%20Investor%20%26%20Impact%20Summit%20(Abu%20Dhabi%20-%20Late%20Apr/May%202026).%20Please%20send%20more%20details%20and%20an%20invitation." role="button">Register interest via email</a>
+
+            <button class="btn btn-outline" id="openRSVP" aria-haspopup="dialog">Request early invitation</button>
+
+            <div style="margin-top:8px;" class="small">Prefer to speak with the team? <br><strong>Contact:</strong> Laika — VP Marketing <a href="mailto:laika@xprize.org">laika@xprize.org</a></div>
+          </div>
+        </div>
+
+        <div class="card" aria-hidden="false">
+          <h4 style="margin:0 0 8px 0;">Summit setting</h4>
+          <div class="small">Hosted in Abu Dhabi in partnership with MBZWI (provisional). Private investor lounge, dedicated team showcases, and curated meet & greets designed to facilitate pilot commitments and investment conversations.</div>
+
+          <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+            <div class="small" style="font-weight:700;">Format</div>
+            <div class="small" style="margin-left:auto; color:var(--muted);">Private showcases • Roundtables • 1:1 investor rooms</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div style="display:flex; gap:12px; align-items:center;">
+        <div class="save">SAVE THE DATE — Late Apr / Early May 2026</div>
+        <div class="small">XPRIZE Investor & Impact Summit • Abu Dhabi, UAE</div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <div class="small">Provisional host: Mohammed bin Zayed Water Initiative</div>
+        <div style="width:1px; height:28px; background:rgba(255,255,255,0.03)"></div>
+        <a href="#" class="small" id="policyBtn">Privacy & data</a>
+      </div>
+    </footer>
   </div>
-</section>
 
-<section id="signup">
-  <h2>Why Attend</h2>
-  <p>Meet the Top 20 semifinalists redefining global water resilience. This is your chance to shape the future — alongside policymakers, investors, and sustainability leaders. Early access means early opportunity.</p>
-  <a href="#rsvp" class="cta-button">Request Early Access</a>
-</section>
+  <!-- RSVP Modal -->
+  <div id="modal" class="modal-backdrop hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <div style="position:relative;">
+        <div id="closeModal" class="close-x" title="Close modal" aria-label="Close">✕</div>
+        <h2 id="modalTitle" style="margin:0 0 8px 0;">Request an early invitation</h2>
+        <p class="small" style="margin:0 0 12px 0;">Share a bit about your organization and priorities so we can prioritize access and set up targeted investor-team meetings.</p>
 
-<section id="rsvp">
-  <h2>Spots Are Limited</h2>
-  <p>We’ll notify you as soon as registration opens. Don’t miss your chance to be part of the solution.</p>
-  <form action="https://formsubmit.co/laika@xprize.org" method="POST">
-    <input type="email" name="email" required placeholder="Your email">
-    <input type="hidden" name="_subject" value="New RSVP for XPRIZE Water Scarcity Summit">
-    <input type="hidden" name="_captcha" value="false">
-    <button type="submit">I Want to Help Solve This</button>
-  </form>
-</section>
+        <form id="rsvpForm" onsubmit="return submitRSVP(event)">
+          <div class="form-row">
+            <input id="org" name="org" type="text" placeholder="Organization / fund" required />
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div style="margin-top:10px;">
+            <input id="email" name="email" type="email" placeholder="Email" required />
+          </div>
 
-<section>
-  <h2>Summit Highlights</h2>
-  <p>Explore cutting-edge desalination technologies, meet the innovators behind the breakthroughs, and engage in high-level discussions on water equity, infrastructure, and investment.</p>
-  <div class="metrics">
-    <div>
-      <h3>20</h3>
-      <p>Semifinalists</p>
-    </div>
-    <div>
-      <h3>50+</h3>
-      <p>Countries Represented</p>
-    </div>
-    <div>
-      <h3>1 Goal</h3>
-      <p>Water for All</p>
+          <div style="margin-top:10px;">
+            <textarea id="note" name="note" rows="4" placeholder="Priority areas (e.g., desalination pilots, procurement, pilot funding, strategic procurement)"></textarea>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:8px;">
+            <button type="submit" class="btn btn-primary">Send request</button>
+            <button type="button" class="btn btn-outline" id="cancelModal">Cancel</button>
+          </div>
+
+          <div id="resp" style="margin-top:10px; color:green; font-weight:700; display:none;">Thanks — your request has been prepared in your email client.</div>
+        </form>
+      </div>
     </div>
   </div>
-</section>
 
-<footer>
-  © 2025 XPRIZE Foundation · <a href="https://www.xprize.org/water" target="_blank">xprize.org/water</a>
-</footer>
+  <script>
+    // Basic interactive behavior: theme toggle, open modal, form -> opens email client (no backend)
+    (function(){
+      const root = document.getElementById('pageRoot');
+      const themeButtons = document.querySelectorAll('[data-theme]');
+      const rsvpBtn = document.getElementById('rsvpBtn');
+      const openRSVP = document.getElementById('openRSVP');
+      const modal = document.getElementById('modal');
+      const closeModal = document.getElementById('closeModal');
+      const cancelModal = document.getElementById('cancelModal');
+      const resp = document.getElementById('resp');
+      const mailtoBtn = document.getElementById('mailtoBtn');
 
+      // initial theme = classic
+      document.body.classList.remove('theme-desert','theme-minimal');
+      themeButtons.forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          const theme = btn.getAttribute('data-theme');
+          themeButtons.forEach(b=>b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          if(theme === 'desert'){
+            document.body.classList.add('theme-desert'); document.body.classList.remove('theme-minimal');
+          } else if(theme === 'minimal'){
+            document.body.classList.add('theme-minimal'); document.body.classList.remove('theme-desert');
+          } else {
+            document.body.classList.remove('theme-desert','theme-minimal');
+          }
+        });
+      });
+
+      // open modal
+      openRSVP.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden','false');
+      });
+      closeModal.addEventListener('click', close);
+      cancelModal.addEventListener('click', close);
+      function close(){ modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); resp.style.display='none'; document.getElementById('rsvpForm').reset(); }
+
+      // RSVP form: open email client with prepopulated body & subject
+      window.submitRSVP = function(ev){
+        ev.preventDefault();
+        const org = encodeURIComponent(document.getElementById('org').value || '');
+        const name = encodeURIComponent(document.getElementById('name').value || '');
+        const email = encodeURIComponent(document.getElementById('email').value || '');
+        const note = encodeURIComponent(document.getElementById('note').value || '');
+        const subject = encodeURIComponent('XPRIZE Investor Summit — Early Invitation Request');
+        const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}%0D%0AOrganization: ${decodeURIComponent(org)}%0D%0AEmail: ${decodeURIComponent(email)}%0D%0ANotes: ${decodeURIComponent(note)}%0D%0A%0D%0APlease prioritize an invitation for relevant investor-team meetings.`);
+        // open default mail app
+        const mailto = 'mailto:events@xprize.org?subject=' + subject + '&body=' + body;
+        // show friendly message and actually open mailto
+        resp.style.display='block';
+        setTimeout(()=>{ window.location.href = mailto; }, 300);
+        return false;
+      };
+
+      // top CTA opens mailto too (redundant)
+      rsvpBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        mailtoBtn.click();
+      });
+
+      // small accessibility improvement: trap closing via Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && !modal.classList.contains('hidden')) close();
+      });
+    })();
+  </script>
 </body>
 </html>
