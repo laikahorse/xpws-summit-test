@@ -3,193 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XPRIZE Water Scarcity | Investor & Impact Summit</title>
+  <title>XPRIZE Water Scarcity Summit | Abu Dhabi 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color:#00142b;
-      color:#fff;
-      overflow-x:hidden;
-      scroll-behavior:smooth;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: radial-gradient(circle at bottom, #001f3f 0%, #000b18 90%);
+      overflow-x: hidden;
     }
 
-    /* HERO */
-    header {
-      position:relative;
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      overflow:hidden;
-      background: radial-gradient(circle at 50% 20%, #003a63, #00142b 80%);
-    }
-
-    header::before {
-      content:"";
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      opacity:0.35;
-      z-index:0;
-      animation: pan 40s linear infinite alternate;
-    }
-
-    @keyframes pan {
-      from {transform:scale(1) translateX(0);}
-      to {transform:scale(1.1) translateX(-50px);}
-    }
-
-    .overlay {
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background: radial-gradient(circle at 50% 30%, rgba(0,180,216,0.1), transparent 70%);
-      z-index:1;
-    }
-
-    header h1 {
-      font-size:3rem;
-      color:#00eaff;
-      text-shadow:0 0 20px rgba(0,234,255,0.8);
-      z-index:2;
-      animation: fadeUp 1.5s ease-out forwards;
-    }
-
-    header p {
-      font-size:1.2rem;
-      color:#d0f4ff;
-      margin-top:20px;
-      z-index:2;
-      animation: fadeUp 2s ease-out forwards;
-    }
-
-    .cta {
-      display:inline-block;
-      margin-top:40px;
-      padding:15px 40px;
-      font-size:1rem;
-      color:#fff;
-      text-decoration:none;
-      border-radius:40px;
-      background:linear-gradient(90deg,#00b4d8,#0096c7);
-      box-shadow:0 0 20px rgba(0,180,216,0.6);
-      transition:0.3s ease;
-      z-index:2;
-      animation: fadeUp 2.5s ease-out forwards;
-    }
-    .cta:hover {
-      transform:scale(1.08);
-      box-shadow:0 0 30px rgba(0,180,216,0.9);
-    }
-
-    /* WAVES */
+    /* Wave motion */
     .wave {
-      position:absolute;
-      bottom:0;
-      left:0;
-      width:200%;
-      height:200px;
-      background:rgba(0,180,216,0.25);
-      border-radius:100%;
-      animation:wave 12s linear infinite;
-      z-index:1;
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 120px;
+      background: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1) 0px,
+        rgba(255, 255, 255, 0.1) 2px,
+        transparent 3px,
+        transparent 6px
+      );
+      opacity: 0.15;
+      animation: moveWaves 12s linear infinite;
+      transform: rotate(180deg);
     }
-    .wave:nth-child(2){animation-delay:-6s;background:rgba(0,119,182,0.3);}
-    @keyframes wave {
-      from {transform:translateX(0);}
-      to {transform:translateX(-50%);}
+    .wave:nth-child(2) {
+      animation-delay: -6s;
+      opacity: 0.2;
     }
-
-    /* FLOATING LIGHT BEAMS */
-    .beam {
-      position:absolute;
-      top:0;
-      width:2px;
-      height:100%;
-      background:linear-gradient(to bottom,rgba(0,234,255,0.1),transparent);
-      animation:beamMove 8s linear infinite;
-      z-index:1;
-    }
-    @keyframes beamMove {
-      from {transform:translateY(0);}
-      to {transform:translateY(100vh);}
+    @keyframes moveWaves {
+      from { transform: translateX(0) rotate(180deg); }
+      to { transform: translateX(-50%) rotate(180deg); }
     }
 
-    /* SECTIONS */
-    section {
-      max-width:900px;
-      margin:100px auto;
-      padding:0 20px;
-      text-align:center;
+    /* Cinematic fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s forwards;
     }
-    h2 {color:#00b4d8;font-size:1.8rem;margin-bottom:15px;}
-    p {color:#d0ecff;line-height:1.7;margin-bottom:25px;}
-    ul {list-style:none;margin:20px 0 40px;padding:0;}
-    li {padding:10px 0;color:#b8e3f0;}
-
-    footer {
-      text-align:center;
-      padding:40px 10px;
-      font-size:0.9rem;
-      border-top:1px solid rgba(255,255,255,0.1);
-      background:#00142b;
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    footer a {color:#00b4d8;text-decoration:none;}
-    footer a:hover{text-decoration:underline;}
 
-    @keyframes fadeUp {
-      from{opacity:0;transform:translateY(30px);}
-      to{opacity:1;transform:translateY(0);}
+    /* Sharp CTA */
+    .cta-btn {
+      border: 1px solid #1E90FF;
+      padding: 0.75rem 1.5rem;
+      transition: 0.3s ease;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .cta-btn:hover {
+      background: #1E90FF;
+      color: #000b18;
+      transform: translateY(-2px);
     }
   </style>
 </head>
-<body>
+<body class="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
 
-  <header>
-    <div class="overlay"></div>
-    <div class="beam" style="left:15%;animation-delay:1s"></div>
-    <div class="beam" style="left:40%;animation-delay:3s"></div>
-    <div class="beam" style="left:70%;animation-delay:5s"></div>
-
-    <h1>XPRIZE Water Scarcity</h1>
-    <p>Investor & Impact Summit<br><strong>ADNEC, Abu Dhabi | Late April / Early May 2026</strong></p>
-    <a href="#" class="cta">Save the Date</a>
-
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </header>
-
-  <section>
-    <h2>About the Summit</h2>
-    <p>
-      Hosted by <strong>XPRIZE</strong>, this exclusive gathering unites global investors, policymakers, and innovators driving breakthrough solutions in seawater desalination and sustainable water access.
+  <!-- Hero -->
+  <section class="relative z-10 fade-in">
+    <h1 class="text-4xl md:text-6xl font-semibold mb-6">
+      The Future of Water Starts Here
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300 mb-10">
+      Join us at the <span class="text-blue-400 font-semibold">XPRIZE Water Scarcity Investor & Impact Summit</span> — 
+      coming late April or early May 2025 to <strong>ADNEC, Abu Dhabi</strong>.  
+      Discover the technologies turning seawater into opportunity.
     </p>
+    <a href="#signup" class="cta-btn inline-block">Save the Date</a>
   </section>
 
-  <section>
-    <h2>Why Attend</h2>
-    <ul>
-      <li>Meet the Top 20 XPRIZE Water Scarcity semifinalists.</li>
-      <li>Invest early in transformative technologies tackling global water challenges.</li>
-      <li>Connect with thought leaders at the intersection of innovation and impact.</li>
-    </ul>
-    <a href="https://www.xprize.org/water" target="_blank" class="cta">Learn More About the Prize</a>
-  </section>
+  <!-- Waves -->
+  <div class="wave"></div>
+  <div class="wave"></div>
 
-  <section>
-    <h2>Location & Timing</h2>
-    <p>
-      <strong>Venue:</strong> Abu Dhabi National Exhibition Centre (ADNEC)<br>
-      <strong>Date:</strong> To Be Confirmed — Late April / Early May 2026<br>
-      <strong>Format:</strong> In-person event with curated showcases and investor roundtables.
+  <!-- Scroll section -->
+  <section id="signup" class="z-10 fade-in mt-40 mb-20 max-w-3xl">
+    <h2 class="text-2xl md:text-3xl mb-4 font-semibold">
+      Be Among the First to Invest in Change
+    </h2>
+    <p class="text-gray-400 mb-8">
+      Meet the top 20 semifinalists redefining global water resilience through innovation and impact.  
+      Policy makers, investors, and sustainability leaders are invited to secure early access.
     </p>
+    <a href="#" class="cta-btn">Request an Invitation</a>
   </section>
 
-  <footer>
-    <p>© 2026 XPRIZE Foundation | <a href="https://www.xprize.org/water">xprize.org/water</a></p>
-    <p>Contact: <a href="mailto:info@xprize.org">info@xprize.org</a></p>
+  <!-- Footer -->
+  <footer class="text-gray-500 text-sm py-8">
+    © 2025 XPRIZE Foundation. All Rights Reserved.
   </footer>
 
 </body>
