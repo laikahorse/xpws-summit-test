@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 <style>
   /* Base */
-  body, html {margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:'Poppins', sans-serif;}
+  body, html {margin:0;padding:0;width:100%;height:100%;overflow-x:hidden;font-family:'Poppins', sans-serif;}
   body {cursor:none; background:#00142b;}
 
   /* Cursor */
@@ -29,12 +29,12 @@
     position:relative; z-index:10; text-align:center; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
     color:#00eaff;
   }
-  header h1 {font-size:3rem; text-transform:uppercase; font-weight:600; letter-spacing:1px; margin-bottom:1rem;}
-  header p {font-size:1.25rem; max-width:700px; color:#b8e3f0;}
+  header h1 {font-size: calc(2rem + 3vw); text-transform:uppercase; font-weight:600; letter-spacing:1px; margin-bottom:1rem;}
+  header p {font-size: calc(1rem + 1vw); max-width:700px; color:#b8e3f0;}
   .cta {border:2px solid #00eaff; padding:1rem 2rem; text-transform:uppercase; font-weight:600; transition:0.3s ease; margin-top:2rem;}
   .cta:hover {background:#00eaff; color:#00142b; transform:scale(1.1);}
 
-  /* Waves & Canvas */
+  /* Canvas background */
   canvas {position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;}
 
   /* Scroll content */
@@ -46,7 +46,7 @@
 </head>
 <body>
 
-<!-- Cursor -->
+<!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
 
 <!-- Hero Section -->
@@ -56,7 +56,7 @@
   <a href="#signup" class="cta">Save the Date</a>
 </header>
 
-<!-- Content Section -->
+<!-- Signup / Info Section -->
 <section id="signup">
   <h2>Be Among the First to Invest in Change</h2>
   <p>Meet the top 20 semifinalists redefining global water resilience. Policy makers, investors, and sustainability leaders are invited to secure early access.</p>
@@ -67,28 +67,37 @@
   © 2025 XPRIZE Foundation | <a href="https://www.xprize.org/water" class="text-blue-400">xprize.org/water</a>
 </footer>
 
-<!-- ⭐ CHECKPOINT: 3D Ripple + Particles Script -->
+<!-- ⭐ CHECKPOINT: All Canvas + Ripple + Scroll + Parallax Scripts -->
 <script>
+/* Canvas Waves + Ripples */
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 canvas.id = 'rippleCanvas';
 const ctx = canvas.getContext('2d');
+
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 window.addEventListener('resize',()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
 
-// Waves & Particles
-let time=0;
+let time = 0;
+const ripples = [];
+let particleCount = window.innerWidth < 600 ? 20 : 50; // mobile optimization
+
+// Track mouse / touch for ripples
+window.addEventListener('mousemove', e => { ripples.push({x:e.clientX,y:e.clientY,radius:0,alpha:0.4}); });
+window.addEventListener('touchmove', e => { for(let t of e.touches){ ripples.push({x:t.clientX,y:t.clientY,radius:0,alpha:0.4}); }});
+
+// Draw loop
 function draw() {
-  time+=0.03;
+  time += 0.03;
   ctx.clearRect(0,0,width,height);
 
-  // Gradient background
-  const grad=ctx.createLinearGradient(0,0,0,height);
+  // Background gradient
+  const grad = ctx.createLinearGradient(0,0,0,height);
   grad.addColorStop(0,'#00142b');
   grad.addColorStop(0.7,'#003a63');
   grad.addColorStop(1,'#00142b');
-  ctx.fillStyle=grad;
+  ctx.fillStyle = grad;
   ctx.fillRect(0,0,width,height);
 
   // Main waves
@@ -101,8 +110,21 @@ function draw() {
   }
   ctx.stroke();
 
-  // Small ripple particles
-  for(let i=0;i<50;i++){
+  // Ripples
+  for(let i=ripples.length-1;i>=0;i--){
+    const r=ripples[i];
+    ctx.beginPath();
+    ctx.arc(r.x,r.y,r.radius,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(0,234,255,${r.alpha})`;
+    ctx.lineWidth=2;
+    ctx.stroke();
+    r.radius+=1.5;
+    r.alpha-=0.01;
+    if(r.alpha<=0) ripples.splice(i,1);
+  }
+
+  // Particles for subtle water sparkle
+  for(let i=0;i<particleCount;i++){
     ctx.beginPath();
     const x=Math.random()*width;
     const y=Math.random()*height;
@@ -115,10 +137,27 @@ function draw() {
 }
 draw();
 
-// Cursor ripple effect
-const cursor = document.getElementById('cursor');
-window.addEventListener('mousemove', e=>{
-  cursor.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;
+/* Custom Cursor */
+const cursor=document.getElementById('cursor');
+window.addEventListener('mousemove', e => { cursor.style.transform=`translate(${e.clientX}px,${e.clientY}px)`; });
+
+/* Smooth Scroll for Anchors */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    const target=document.querySelector(this.getAttribute('href'));
+    const offset=80; // adjust so section not hidden
+    window.scrollTo({top:target.offsetTop - offset, behavior:'smooth'});
+  });
+});
+
+/* Parallax Text Effect */
+window.addEventListener('scroll', ()=>{
+  const scrollY = window.scrollY;
+  const heroH1 = document.querySelector('header h1');
+  const heroP = document.querySelector('header p');
+  heroH1.style.transform = `translateY(${scrollY*0.3}px)`;
+  heroP.style.transform = `translateY(${scrollY*0.15}px)`;
 });
 </script>
 
