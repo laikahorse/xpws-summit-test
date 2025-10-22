@@ -5,187 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XPRIZE Water Scarcity | Investor & Impact Summit</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {margin:0;padding:0;box-sizing:border-box;}
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #fff;
-      background-color: #00142b;
-      overflow-x: hidden;
+      background-color:#00142b;
+      color:#fff;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
     }
 
-    /* Hero Section */
+    /* HERO */
     header {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(180deg, #00142b 0%, #012e52 100%);
-      overflow: hidden;
+      position:relative;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+      background: radial-gradient(circle at 50% 20%, #003a63, #00142b 80%);
+    }
+
+    header::before {
+      content:"";
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      opacity:0.35;
+      z-index:0;
+      animation: pan 40s linear infinite alternate;
+    }
+
+    @keyframes pan {
+      from {transform:scale(1) translateX(0);}
+      to {transform:scale(1.1) translateX(-50px);}
+    }
+
+    .overlay {
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background: radial-gradient(circle at 50% 30%, rgba(0,180,216,0.1), transparent 70%);
+      z-index:1;
     }
 
     header h1 {
-      font-size: 3rem;
-      color: #00b4d8;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: fadeInUp 1.5s ease forwards;
+      font-size:3rem;
+      color:#00eaff;
+      text-shadow:0 0 20px rgba(0,234,255,0.8);
+      z-index:2;
+      animation: fadeUp 1.5s ease-out forwards;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #d0ecff;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.5;
-      animation: fadeInUp 2s ease forwards;
+      font-size:1.2rem;
+      color:#d0f4ff;
+      margin-top:20px;
+      z-index:2;
+      animation: fadeUp 2s ease-out forwards;
     }
 
     .cta {
-      margin-top: 30px;
-      background: linear-gradient(90deg, #00b4d8, #0096c7);
-      color: #fff;
-      border: none;
-      padding: 15px 40px;
-      border-radius: 50px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: 0.3s ease;
-      animation: fadeInUp 2.5s ease forwards;
+      display:inline-block;
+      margin-top:40px;
+      padding:15px 40px;
+      font-size:1rem;
+      color:#fff;
+      text-decoration:none;
+      border-radius:40px;
+      background:linear-gradient(90deg,#00b4d8,#0096c7);
+      box-shadow:0 0 20px rgba(0,180,216,0.6);
+      transition:0.3s ease;
+      z-index:2;
+      animation: fadeUp 2.5s ease-out forwards;
     }
     .cta:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #0096c7, #0077b6);
+      transform:scale(1.08);
+      box-shadow:0 0 30px rgba(0,180,216,0.9);
     }
 
-    /* Animated Wave Background */
+    /* WAVES */
     .wave {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 200px;
-      background: rgba(0, 180, 216, 0.3);
-      opacity: 0.6;
-      border-radius: 100%;
-      animation: wave 8s linear infinite;
-      transform: translateX(-50%);
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:200%;
+      height:200px;
+      background:rgba(0,180,216,0.25);
+      border-radius:100%;
+      animation:wave 12s linear infinite;
+      z-index:1;
     }
-    .wave:nth-child(2) {
-      animation-delay: -4s;
-      background: rgba(0, 119, 182, 0.3);
-      height: 250px;
-    }
-
+    .wave:nth-child(2){animation-delay:-6s;background:rgba(0,119,182,0.3);}
     @keyframes wave {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      from {transform:translateX(0);}
+      to {transform:translateX(-50%);}
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* FLOATING LIGHT BEAMS */
+    .beam {
+      position:absolute;
+      top:0;
+      width:2px;
+      height:100%;
+      background:linear-gradient(to bottom,rgba(0,234,255,0.1),transparent);
+      animation:beamMove 8s linear infinite;
+      z-index:1;
+    }
+    @keyframes beamMove {
+      from {transform:translateY(0);}
+      to {transform:translateY(100vh);}
     }
 
-    /* Sections */
+    /* SECTIONS */
     section {
-      max-width: 900px;
-      margin: 100px auto;
-      padding: 0 20px;
-      text-align: center;
+      max-width:900px;
+      margin:100px auto;
+      padding:0 20px;
+      text-align:center;
     }
-    h2 {
-      color: #00b4d8;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #d0ecff;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 30px;
-    }
-    ul li {
-      padding: 10px 0;
-      color: #b8e3f0;
-    }
+    h2 {color:#00b4d8;font-size:1.8rem;margin-bottom:15px;}
+    p {color:#d0ecff;line-height:1.7;margin-bottom:25px;}
+    ul {list-style:none;margin:20px 0 40px;padding:0;}
+    li {padding:10px 0;color:#b8e3f0;}
 
-    /* Footer */
     footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9rem;
-      background: #00142b;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align:center;
+      padding:40px 10px;
+      font-size:0.9rem;
+      border-top:1px solid rgba(255,255,255,0.1);
+      background:#00142b;
     }
-    footer a {
-      color: #00b4d8;
-      text-decoration: none;
-    }
-    footer a:hover { text-decoration: underline; }
+    footer a {color:#00b4d8;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
 
-    /* Floating bubbles animation */
-    .bubbles span {
-      position: absolute;
-      bottom: 0;
-      width: 10px;
-      height: 10px;
-      background: rgba(0, 180, 216, 0.3);
-      border-radius: 50%;
-      animation: rise 8s infinite ease-in;
-    }
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.7; }
-      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(30px);}
+      to{opacity:1;transform:translateY(0);}
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>XPRIZE Water Scarcity</h1>
-    <p>
-      Investor & Impact Summit  
-      <br><strong>ADNEC, Abu Dhabi | Late April / Early May 2026</strong>
-    </p>
-    <a href="#" class="cta">Save the Date</a>
-    <div class="wave"></div>
-    <div class="wave"></div>
+    <div class="overlay"></div>
+    <div class="beam" style="left:15%;animation-delay:1s"></div>
+    <div class="beam" style="left:40%;animation-delay:3s"></div>
+    <div class="beam" style="left:70%;animation-delay:5s"></div>
 
-    <div class="bubbles">
-      <span style="left:10%;animation-delay:1s;"></span>
-      <span style="left:20%;animation-delay:2s;"></span>
-      <span style="left:30%;animation-delay:3s;"></span>
-      <span style="left:50%;animation-delay:4s;"></span>
-      <span style="left:70%;animation-delay:1.5s;"></span>
-      <span style="left:80%;animation-delay:3.5s;"></span>
-      <span style="left:90%;animation-delay:5s;"></span>
-    </div>
+    <h1>XPRIZE Water Scarcity</h1>
+    <p>Investor & Impact Summit<br><strong>ADNEC, Abu Dhabi | Late April / Early May 2026</strong></p>
+    <a href="#" class="cta">Save the Date</a>
+
+    <div class="wave"></div>
+    <div class="wave"></div>
   </header>
 
   <section>
     <h2>About the Summit</h2>
     <p>
-      Hosted by <strong>XPRIZE</strong>, the Water Scarcity Investor & Impact Summit is where technology, capital, and
-      global leadership converge. This exclusive event unveils the <strong>Top 20 semifinalists</strong> pioneering
-      breakthroughs in seawater desalination, water reuse, and sustainable access.
+      Hosted by <strong>XPRIZE</strong>, this exclusive gathering unites global investors, policymakers, and innovators driving breakthrough solutions in seawater desalination and sustainable water access.
     </p>
   </section>
 
   <section>
     <h2>Why Attend</h2>
     <ul>
-      <li>Be first to discover investable water technologies redefining the future of scarcity.</li>
-      <li>Meet innovators shaping climate resilience across the globe.</li>
-      <li>Connect with policymakers and investors accelerating scalable impact.</li>
+      <li>Meet the Top 20 XPRIZE Water Scarcity semifinalists.</li>
+      <li>Invest early in transformative technologies tackling global water challenges.</li>
+      <li>Connect with thought leaders at the intersection of innovation and impact.</li>
     </ul>
     <a href="https://www.xprize.org/water" target="_blank" class="cta">Learn More About the Prize</a>
   </section>
@@ -195,7 +183,7 @@
     <p>
       <strong>Venue:</strong> Abu Dhabi National Exhibition Centre (ADNEC)<br>
       <strong>Date:</strong> To Be Confirmed — Late April / Early May 2026<br>
-      <strong>Format:</strong> In-person with curated showcases and networking sessions.
+      <strong>Format:</strong> In-person event with curated showcases and investor roundtables.
     </p>
   </section>
 
